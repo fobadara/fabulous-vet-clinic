@@ -10,6 +10,10 @@ CREATE TABLE animals (
      PRIMARY KEY(id)
 );
 
+/* Add a species column of type string */
+ALTER TABLE animals 
+ADD COLUMN species VARCHAR(100);
+
 -- Create a table named owners with the following columns:
 -- id: integer (set it as autoincremented PRIMARY KEY), full_name: string, age: integer
 CREATE TABLE owners(
