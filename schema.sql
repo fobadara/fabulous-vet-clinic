@@ -74,3 +74,14 @@ CREATE TABLE visits (
   vets_id BIGINT REFERENCES vets(id),
   date_of_visit DATE
 );
+
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- Create clustered indexing to speed up the search of visited animals
+CREATE INDEX visits_animals_asc ON visits(animals_id ASC)
+-- Create clustered indexing to speed up the search of visiting vets
+CREATE INDEX visits_vets_desc ON visits(vets_id DESC);
+-- Create clustered indexing to speed up the search of owner's email
+CREATE INDEX owners_email_DESC ON owners(email DESC);
